@@ -47,10 +47,14 @@ export default {
     };
   },
   methods: {
-    checkTodo(todoObj) {
+    async checkTodo(todoObj) {
       axios
         .put(`/memo/${todoObj.id}`, { ...todoObj })
         .then((res) => console.log(res));
+      const { data } = await axios.get(
+        '/memo?_sort=state,priority,due&_order=DESC,ASC,ASC'
+      );
+      this.todos = [...data];
     },
     removeTodo(idToRemove) {
       axios.delete(`/memo/${idToRemove}`).then((res) => console.log(res));

@@ -24,7 +24,7 @@
       "content": "123",
       "due": 1591315200000,
       "priority": "1",
-      "state": false
+      "state": true
     }
   ]
 }
